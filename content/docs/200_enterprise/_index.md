@@ -3,18 +3,25 @@ title: Enterprise Features
 weight: 3000
 ---
 
-Some features of Sakuli require an enterprise license. Please consult our **[overview](/enterprise)** to see and request packages and prices. After you registered for an enterprise subscription, you will get a license-key and an NPM access token which are required to use enterprise features.
+Some features of Sakuli require an enterprise license. Please consult our **[overview](/enterprise)** to see and request packages and prices. After you registered for an enterprise subscription, you will receive a license-key and an NPM access token which are required to use enterprise features.
+
+- The **NPM token** is an access token which allows you to install our enterprise packages via NPM. It has to be provided **before** attempting to install any enterprise components of Sakuli.
+- The Sakuli license token contains information about your active subscription and is required to enable enterprise plugins at runtime. It has to be provided before executing any tests relying on Sakuli enterprise features.
 
 ## Using NPM-Token
 
-All enterprise plugins are published on NPM. In contrast to the core packages they are not publicly accessible. Therefore you need the provided access token in order to install these packages into your Sakuli projects. The easiest way is to add the token in a `.npmrc`-file in the root of your project directory:
+All enterprise plugins are published to NPM. In contrast to core packages, enterprise packages are not publicly accessible. 
+Therefore, a personal access token is required to install these packages in a Sakuli project. 
+The easiest way to provide the access token is to add it to a `.npmrc`-file in the root of a Sakuli project:
 
 {{<highlight bash>}}
 # cd to/your/project
 echo "//registry.npmjs.org/:_authToken=<PERSONAL-TOKEN>" >> .npmrc
 {{</highlight>}}
 
-This command will create an `.npmrc` file with the neccessary token configuration. Every upcoming `npm install` will use this configuration. If you dont like to save the token in a file (because this file might be shared) you can configure it to use an [environment variable](environment-variables):
+This command will create an `.npmrc` file with the neccessary token configuration. 
+Every upcoming `npm install` in the current project will use this configuration. 
+If you don't like to save the token in a file (because this file might be shared), you can configure it to use an [environment variable](environment-variables):
 
 {{<highlight bash>}}
 echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> .npmrc
@@ -30,7 +37,9 @@ It is usually not necessary to persist the token since you will seldomly run `np
 
 ## Using the License-Key
 
-The license-key contains information about your subscription which will be checked by enterprise components before they are executed. In order to provide this information to Sakuli you also have to set the license-key as an environment variable. Because the license-key is read on every single test execution it is useful to store it persistently on your system or set it in a script where the actual test is also called.
+The license-key contains information about your subscription which will be checked by enterprise components before they are executed. 
+In order to provide this information to Sakuli, you have to provide the license-key as an environment variable. 
+Because the license-key is read on every single test execution it is useful to store it persistently on your system or set it in a script where the actual test is also called.
 
 The name of the environment variable for the license-key is `SAKULI_LICENSE_KEY`.
 
