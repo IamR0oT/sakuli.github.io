@@ -175,3 +175,13 @@ You must set the global properties for the gearman receiver on the Sakuli client
 | `sakuli.forwarder.gearman.server.host`| | The host where OMD is running |
 | `sakuli.forwarder.gearman.server.port`| `4730` | The port where gearman is listing (configured in [**enable and configure mod-gearman**](#enable-and-configure mod-gearman)) |
 | `sakuli.forwarder.gearman.server.queue`| `check_results` | The default queue for Sakuli |
+
+An example configuration could look like this:
+
+{{<highlight properties>}}
+sakuli.forwarder.gearman.enabled=true
+sakuli.forwarder.gearman.server.host=MyHost
+sakuli.forwarder.gearman.server.port=4730
+sakuli.forwarder.gearman.nagios.hostname=sakuli_client
+sakuli.forwarder.gearman.nagios.check_command=check_sakuli
+{{</highlight>}}
