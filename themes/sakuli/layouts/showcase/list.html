@@ -1,0 +1,23 @@
+<!-- Header -->
+{{ partial "header.html" . }}
+<article class="shrink-content"></article>
+<h2>Press the "Start" Button and watch how Sakuli will simulate the following business process</h2>
+<ul>
+    <li>System under Test is a ticketing and workflow web-tool called CM</li>
+    <li>Sakuli simulates the usage of this tool by</li>
+    <ul>
+        <li>Opening a Ticket as a customer</li>
+        <li>Checking the Ticket data as a business person</li>
+        <li>Validating the Email sent by the system to the customer</li>
+    </ul>
+    <li>Sakuli finally sends the gathered performance data to a Monitoring System</li>
+</ul> 
+The first display shows the automated test and the second display shows the monitoring data and will send alerting emails as soon as the System under Test does not behave as expected.
+</article>
+<div class="sakuli-dashboard">
+    <iframe style="border:0px;" src="https://sakuli-cm-demo.paas.consol.de/" name="sakuli-cm-live-demo" width="100%" height="100%"></iframe>
+</div>
+
+
+<!-- Footer -->
+{{ partial "footer.html" . }}
